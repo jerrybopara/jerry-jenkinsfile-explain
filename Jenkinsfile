@@ -20,7 +20,6 @@ pipeline {
 
             steps {
                 echo 'Deploying the application...'
-                sh 'docker up -d'
             }
         }
     } // end of stages
