@@ -14,13 +14,13 @@ pipeline {
         stage("Test") {
             
             steps {
-                echo "testing the application..."
+                echo 'testing the application...'
             }
         }
 
         stage("Deploy") {
             steps {
-                echo "Deploying the application..."
+                echo 'Deploying the application...'
             }
 
         }
