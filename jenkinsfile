@@ -13,10 +13,9 @@ pipeline {
             
             steps {
                 echo 'building an application...'
-                sh 'docker images'
-                
-            } // end of steps 
-        } // end of stage
+                                
+            } 
+        } 
 
         stage("Deploy") {
             steps {
