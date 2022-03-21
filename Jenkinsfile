@@ -22,8 +22,22 @@ pipeline {
                 echo 'Deploying the application...'
             }
         }
-
-
     } // end of stages
+    post {
+        always {
+           echo 'I run always, No matter what the result is...'     
+        }
+
+        success {
+            echo 'I only runs when i got Success...'
+
+        }
+        failure {
+            echo 'I only runs when i got Failure...'
+
+        }
+    }
+
+
 } // end of pipeline
 
