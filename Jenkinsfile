@@ -18,6 +18,16 @@ pipeline {
             }
         }
 
+        stage("Test Dev Branch") {
+            when {
+                branch 'dev'
+            }
+            steps {
+                echo 'run this stage - ony if the branch = Dev branch'
+            }
+        }    
+
+
         stage("Deploy") {
 
             steps {
