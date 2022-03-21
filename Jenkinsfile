@@ -10,9 +10,15 @@ pipeline {
         } 
 
         stage("Test") {
+            when {
+                experssion {
+                    BRANCH_NAME == 'main'
+                }
+            }
             
             steps {
                 echo 'testing the application...'
+                echo 'Only when am in MAIN Branch...'
             }
         }
 
