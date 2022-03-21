@@ -9,16 +9,12 @@ pipeline {
             } 
         } 
 
-        stage("Test") {
+        stage("Test Main Branch") {
             when {
-                experssion {
-                    BRANCH_NAME == 'main'
-                }
+                branch 'main'
             }
-            
             steps {
-                echo 'testing the application...'
-                echo 'Only when am in MAIN Branch...'
+                echo 'run this stage - ony if the branch = main branch'
             }
         }
 
