@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage("Build") {
+            
+            steps {
+                echo 'building an application...'
+                sh 'docker images'
+                
+            } // end of steps 
+        } // end of stage
+
+        stage("Test"){
+            
+            steps {
+                echo "testing the application..."
+            }
+        }
+
+        stage("Deploy") {
+            steps{
+                echo "Deploying the application..."
+            }
+
+        }
+
+
+    } // end of stages
+} // end of pipeline
+
+http://54.227.21.17:8080/git/notifyCommit?url=https://github.com/jerrybopara/jerry-jenkinsfile-explain
