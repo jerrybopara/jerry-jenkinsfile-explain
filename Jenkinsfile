@@ -6,7 +6,6 @@ pipeline {
     }
 
     // --------------- 
-
     stages { 
         stage('Build') {
             steps {
@@ -14,19 +13,14 @@ pipeline {
                 echo "Build Process Started../"
 
                 script {
-                    if (ENVIRONMENT_NAME == 'main') {
+                    if (ENV_NAME == 'main') {
                         ENV_NAME = 'main'
-                    } else if (ENVIRONMENT_NAME == 'dev' ) {
+                    } else if (ENV_NAME == 'dev' ) {
                         ENV_NAME = 'dev'    
                     }
 
                 }
 
-                echo 'Building Branch: ' + env.BRANCH_NAME
-                echo 'Build Number: ' + env.BUILD_NUMBER
-                echo 'Building Environment: ' + ENV_NAME
-
-                echo "Running your service with environemnt ${ENV_NAME} now"
             }
         }
 
