@@ -57,9 +57,8 @@ pipeline {
             // }
 
             when {
-                env.Branch_Name == 'dev'
+                env.BRANCH_NAME == 'dev'
             }
-
             steps {
                 echo 'Deploy the application - only if the branch = dev branch'
             }
