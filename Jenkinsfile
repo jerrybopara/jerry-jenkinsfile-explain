@@ -27,6 +27,7 @@ pipeline {
             steps {
                 echo 'Run this TEST stage - only if the branch = main branch'
                 echo "New Version: ${env.NEW_VER}"
+                echo "STAGE a New Version: ${env.STAGE_VER}"
             }
         }
 
