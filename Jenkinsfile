@@ -8,7 +8,8 @@ pipeline {
             }
 
             steps {
-                echo 'Building an application - only if the branch = main branch'                   
+                echo 'Building an application - only if the branch = main branch'
+                 echo "Running ${env.BUILD_ID} on ${env.BRANCH_NAME}"
             } 
         } 
 
@@ -39,6 +40,7 @@ pipeline {
 
             steps {
                 echo 'Building an application - only if the branch = dev branch'                   
+                echo "Running ${env.BUILD_ID} on ${env.BRANCH_NAME}"
             } 
         } 
 
