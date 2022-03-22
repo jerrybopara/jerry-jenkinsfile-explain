@@ -52,8 +52,12 @@ pipeline {
         }
 
         stage("Dev Branch - Deploy") {
+            // when {
+            //     branch 'dev'
+            // }
+
             when {
-                branch 'dev'
+                env.Branch_Name == 'dev'
             }
 
             steps {
