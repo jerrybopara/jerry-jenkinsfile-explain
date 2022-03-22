@@ -9,7 +9,7 @@ pipeline {
 
             steps {
                 echo 'Building an application - only if the branch = main branch'
-                echo "Running Build ID: ${env.BUILD_ID} on Branch: ${env.BRANCH_NAME}"
+                echo "Running Build ID: ${env.BUILD_ID} on Branch: ${env.BRANCH_NAME} at Node: ${env.NODE_NAME}"
             } 
         } 
 
@@ -40,7 +40,7 @@ pipeline {
 
             steps {
                 echo 'Building an application - only if the branch = dev branch'                   
-                echo "Running Build ID: ${env.BUILD_ID} on Branch: ${env.BRANCH_NAME}"
+                echo "Running Build ID: ${env.BUILD_ID} on Branch: ${env.BRANCH_NAME} at Node: ${env.NODE_NAME}"
             } 
         } 
 
