@@ -2,84 +2,34 @@ pipeline {
     agent any
     
     environment {
-        NAME = 'Jerry'
+        ENV_NAME = "${env.BRANCH_NAME}"
     }
-    stages {
-        stage("Main Branch - Build") {
-            when {
-                branch 'main'
-            }
 
+    // --------------- 
+
+    stages { 
+        stage('Build') {
             steps {
-                echo "Building an application - only if the branch = main branch"
-                echo "Running Build ID: ${env.BUILD_ID} on Branch: ${env.BRANCH_NAME} at Node: ${env.NODE_NAME}"
-                echo "Build By: ${NAME}"
-            } 
-        } 
+                // echo "Running Build ID: ${env.BUILD_ID} on Branch: ${env.BRANCH_NAME} at Node: ${env.NODE_NAME}"
+                echo "Build Process Started../"
 
-        stage("Main Branch - Test") {
-            when {
-                branch 'main'
-            }
-            steps {
-                echo 'Run this TEST stage - only if the branch = main branch'
-            }
-        }
+                script {
+                    if (ENVIRONMENT_NAME == 'main') {
+                        ENV_NAME = 'main'
+                    } else if (ENVIRONMENT_NAME == 'dev' ) {
+                        ENV_NAME = 'dev'    
+                    }
 
-        stage("Main Branch - Deploy") {
-            when {
-                branch 'main'
-            }
+                }
 
-            steps {
-                echo 'Deploy the application - only if the branch = main branch'
+                echo 'Building Branch: ' + env.BRANCH_NAME
+                echo 'Build Number: ' + env.BUILD_NUMBER
+                echo 'Building Environment: ' + ENV_NAME
+
+                echo "Running your service with environemnt ${ENV_NAME} now"
             }
         }
 
-// Dev Branch Stuff
-        stage("Dev Branch - Build") {
-            when {
-                branch 'dev'
-            }
-
-            steps {
-                echo 'Building an application - only if the branch = dev branch'                   
-                echo "Running Build ID: ${env.BUILD_ID} on Branch: ${env.BRANCH_NAME} at Node: ${env.NODE_NAME}"
-            } 
-        } 
-
-        stage("Dev Branch - Test") {
-            when {
-                branch 'dev'
-            }
-            steps {
-                echo 'Run this TEST stage - only if the branch = dev branch'
-            }
-        }
-
-        stage("Dev Branch - Deploy") {
-            when {
-                expression { env.BRANCH_NAME == 'dev' }
-            }
-            steps {
-                echo 'Deploy the application - only if the branch = dev branch'
-            }
-        }
-
-    } // end of stages
-    post {
-        always {
-           echo 'I run always, No matter what the result is...'     
-        }
-
-        success {
-            echo 'I only runs when i got Success...'
-
-        }
-        failure {
-            echo 'I only runs when i got Failure...'
-
-        }
     }
-} // end of pipeline
 
+}
