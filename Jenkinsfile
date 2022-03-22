@@ -12,14 +12,19 @@ pipeline {
                 // echo "Running Build ID: ${env.BUILD_ID} on Branch: ${env.BRANCH_NAME} at Node: ${env.NODE_NAME}"
                 echo "Build Process Started../"
 
-                script {
-                    if (ENV_NAME == 'main') {
-                        ENV_NAME = 'main'
-                    } else if (ENV_NAME == 'dev' ) {
-                        ENV_NAME = 'dev'    
-                    }
+                // script {
+                //     if (ENV_NAME == 'main') {
+                //         ENV_NAME = 'main'
+                //     } else if (ENV_NAME == 'dev' ) {
+                //         ENV_NAME = 'dev'    
+                //     }
 
-                }
+                // }
+                echo "Building an application - only if the branch = main branch"
+                echo "Running Build ID: ${env.BUILD_ID} on Branch: ${env.BRANCH_NAME} at Node: ${env.NODE_NAME}"
+                echo "Build By: ${NAME}"    
+                    
+
 
             }
         }
