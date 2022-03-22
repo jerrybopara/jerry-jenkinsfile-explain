@@ -2,10 +2,10 @@ pipeline {
     agent any
     
     environment {
-        NAME = 'Jerry'
+        VarENV = 'Global_env'
     }
     stages {
-        stage("Main Branch - Build") {
+        stage("${env.BRANCH_NAME} Branch - Build") {
             when {
                 branch 'main'
             }
@@ -17,7 +17,7 @@ pipeline {
             } 
         } 
 
-        stage("Main Branch - Test") {
+        stage("${env.BRANCH_NAME} Branch - Test") {
             when {
                 branch 'main'
             }
