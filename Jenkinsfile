@@ -1,6 +1,9 @@
 pipeline {
     agent any
     
+    environment {
+        NAME = 'Jerry'
+    }
     stages {
         stage("Main Branch - Build") {
             when {
@@ -8,8 +11,9 @@ pipeline {
             }
 
             steps {
-                echo 'Building an application - only if the branch = main branch'
+                echo "Building an application - only if the branch = main branch"
                 echo "Running Build ID: ${env.BUILD_ID} on Branch: ${env.BRANCH_NAME} at Node: ${env.NODE_NAME}"
+                echo "Build By: ${NAME}"
             } 
         } 
 
