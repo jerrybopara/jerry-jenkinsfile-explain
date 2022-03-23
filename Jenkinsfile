@@ -1,15 +1,20 @@
 pipeline {
     agent any
+
+    parameters {
+        string(name: 'Greeting', defaultValue: 'Hello', description: 'Just a False Description.')
+    }
     
     stages {
         stage("Main Branch - Build") {
             when {
                 branch 'main'
-            }
+            }   
 
             steps {
                 echo "Building an application - only if the branch = main branch"
                 echo "Running Build ID: ${env.BUILD_ID} on Branch: ${env.BRANCH_NAME} at Node: ${env.NODE_NAME}"
+                echo "${params.Greeting} World!"
             } 
         } 
 
