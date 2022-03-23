@@ -9,6 +9,7 @@ pipeline {
         stage('Print Environment Variables.') {
             steps {
                 sh "printenv | sort"
+                sh 'echo BUILD_NUMBER = $BUILD_NUMBER'
             }
 
         }
