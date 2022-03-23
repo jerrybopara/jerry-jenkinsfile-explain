@@ -11,9 +11,13 @@ pipeline {
         stage("Using env Vars") {
             steps {
                echo "BUILD_NUMBER = ${env.BUILD_NUMBER}"     
-               echo "BRANCH_NAME = ${env.BRANCH_NAME}"
-               echo "WORKSPACE = ${env.WORKSPACE}"
+               sh 'echo BUILD_NUMBER = $BUILD_NUMBER'
+
             }
         }    
+
+
+
+
     }
 }
