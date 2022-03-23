@@ -2,11 +2,11 @@ pipeline {
     agent any
 
     stages {
-        stage("List env Variables") {
-            steps {
-                sh "printenv | sort"
-            }
-        }
+        // stage("List env Variables") {
+        //     steps {
+        //         sh "printenv | sort"
+        //     }
+        // }
 
         stage("Using env Vars") {
             steps {
