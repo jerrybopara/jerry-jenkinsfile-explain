@@ -6,6 +6,13 @@ pipeline {
     }
     
     stages {
+        stage('Print Environment Variables.') {
+            steps {
+                sh "printenv | sort"
+            }
+
+        }
+
         stage('Setup Parameters') {
             steps {
                 script {
@@ -54,8 +61,6 @@ pipeline {
             }
 
         }
-
-
 
         stage("Main Branch - Build") {
             when {
