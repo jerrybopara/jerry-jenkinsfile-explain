@@ -1,5 +1,5 @@
-def myname="Jerry"
-def os="Linux"
+def MYNAME="Jerry"
+def OS="Linux"
 
 pipeline {
     agent any
@@ -34,9 +34,7 @@ pipeline {
 
         stage("Checking Who is there.") {
             when {
-                expression{
-                    ${myname} == "Jerry"
-                }
+                expression { MYNAME == 'Jerry' }
             }
             steps {
                 echo "MyName is Matched: ${myname}"
