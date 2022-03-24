@@ -28,7 +28,8 @@ pipeline {
 
                script {
                    env.USERGROUP = 'Users'
-                   env.USER_NAME = 'Jerry2'
+                   env.USER_NAME = 'Cena'
+                   env.TRIGGER_NEXT = true
                }
                sh 'echo User Group Inside the stage1 : $USERGROUP' 
                
@@ -38,13 +39,22 @@ pipeline {
                    echo "Current User is withENV:  ${env.USER_NAME} and USER_ID is: ${env.USER_ID}"
                }
                
-               
                echo "Current User Name is: ${env.USER_NAME}" 
                echo "Current User ID is: ${env.USER_ID}"   
 
-            }
+            }       
         }
+        stage("Stage 2 - Triggered bassed on Stage 1 Output") {
+            when {
+                expression {
+                    env.TRIGGER_NEXT == true
+                }
+            }
+            steps{
+                echo "Stage 2 Executed."
+            }
 
+        }
 
 
     }
