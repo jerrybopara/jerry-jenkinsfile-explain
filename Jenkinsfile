@@ -10,6 +10,7 @@ pipeline {
         stage("Print Global ENV's") {
             environment {
                 USER_AGE = "31"
+                USER_ID = "222"
             }
             steps {
                 echo "USER_NAME is: ${USER_NAME}"
