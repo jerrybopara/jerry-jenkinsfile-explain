@@ -31,7 +31,17 @@ pipeline {
                    env.USER_NAME = 'Jerry2'
                }
                sh 'echo User Group Inside the stage1 : $USERGROUP' 
+               
+               withEnv(["USER_PWD=secret", "IS_USER_ADMIN=false", "USER_PATH=/home/John", "USER_NAME=John"]) {
+                   echo "Current User Password is : ${env.USER_PWD}"
+                   sh 'echo Current User is Admin? : $env.IS_USER_ADMIN'
+                   echo "Current User is withENV:  ${env.USER_NAME}"
+               }
+               
+               
                echo "Current User is ${env.USER_NAME}" 
+
+
             }
         }
 
