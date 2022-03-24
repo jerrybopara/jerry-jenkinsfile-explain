@@ -28,9 +28,9 @@ pipeline {
                echo "Current User Path ${env.USER_PATH}"
                echo "My Name is : ${myname}"
                
-               script {
+            //    script {
                    
-               }
+            //    }
 
             }
         }    
