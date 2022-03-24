@@ -45,7 +45,16 @@ pipeline {
             steps {
                 echo "Stage2 - TriggerBool is True."
             }    
+        }
 
+        stage("Stage 3: Executes only when TriggerWhen is True.") {
+            when {
+                environment name: "TriggerWhen", value: "True"
+            }
+
+            steps {
+                 echo "Stage3 - TriggerWhen is True."
+            }
 
         }
     }
