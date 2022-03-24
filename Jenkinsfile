@@ -39,8 +39,8 @@ pipeline {
                }
                
                
-               echo "Current User is ${env.USER_NAME}" 
-
+               echo "Current User Name is: ${env.USER_NAME}" 
+               echo "Current User ID is: ${env.USER_ID}"   
 
             }
         }
