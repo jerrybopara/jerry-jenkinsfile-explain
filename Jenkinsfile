@@ -45,6 +45,7 @@ pipeline {
 
             }       
         }
+
         stage("Stage 2 - Checking TriggerBoolean.") {
             when {
                 expression {
@@ -58,12 +59,17 @@ pipeline {
         }
 
         stage("Stage 3 - Checking TriggerWhen.") {
+            environment {
+                COUNT_FILES = sh "ls -la /tmp | tail -n +4 | wc -l"
+            }
+
             when {
                 environment name: "TRIGGER_when", value: "true"
             }
 
             steps{
                 echo "Stage 3 Executed. : as TRIGGER_when is True."
+                echo "There are ${env.COUNT_FILES} files in /tmp Folder."
             }
 
         }
