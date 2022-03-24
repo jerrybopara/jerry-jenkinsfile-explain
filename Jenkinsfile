@@ -18,6 +18,14 @@ pipeline {
                 sh 'echo USER_ID : $USER_ID'
                 echo "USER AGE is : ${USER_AGE}"       
                 echo "Current User ID is ${env.USER_ID} (type: ${env.USER_ID.class}" 
+                
+                script {
+                    env.USER_NAME = 'Bopara'
+                    env.USER_ID = '111'
+                }    
+
+                sh 'echo My UserName is : $USER_NAME and USER_ID is : $USER_ID'
+
             }
         }
     }
