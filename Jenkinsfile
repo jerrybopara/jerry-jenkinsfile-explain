@@ -49,7 +49,7 @@ pipeline {
 
         stage("Stage 3: Executes only when TriggerWhen is True.") {
             when {
-                environment name: "TriggerWhen", value: "True"
+                environment name: "TriggerWhen", value: "true"
             }
 
             steps {
