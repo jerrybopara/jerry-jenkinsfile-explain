@@ -17,6 +17,7 @@ pipeline {
                 echo "USER_NAME is: ${env.USER_NAME}"
                 sh 'echo USER_ID : $USER_ID'
                 echo "USER AGE is : ${USER_AGE}"       
+                echo "Current User ID is ${env.USER_ID} (type: ${env.USER_ID.class}" 
             }
         }
     }
