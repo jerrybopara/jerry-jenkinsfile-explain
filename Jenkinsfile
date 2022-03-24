@@ -8,11 +8,14 @@ pipeline {
 
     stages{
         stage("Print Global ENV's") {
+            environment {
+                USER_AGE = "31"
+            }
             steps {
                 echo "USER_NAME is: ${USER_NAME}"
                 echo "USER_NAME is: ${env.USER_NAME}"
                 sh 'echo USER_ID : $USER_ID'
-                
+                echo "USER AGE is : ${USER_AGE}"       
             }
         }
     }
