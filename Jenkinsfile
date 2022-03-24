@@ -52,6 +52,7 @@ pipeline {
             }
             steps{
                 echo "Stage 2 Executed."
+                echo "Current User is withENV:  ${env.USER_NAME} and USER_ID is: ${env.USER_ID}"
             }
 
         }
