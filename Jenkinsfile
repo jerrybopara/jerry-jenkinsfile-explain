@@ -31,7 +31,7 @@ pipeline {
                    env.USER_NAME = 'Jerry2'
                }
                sh 'echo User Group Inside the stage1 : $USERGROUP' 
-
+               echo "Current User is ${env.USER_NAME}" 
             }
         }
 
