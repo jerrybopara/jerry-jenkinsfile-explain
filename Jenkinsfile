@@ -34,7 +34,7 @@ pipeline {
                
                withEnv(["USER_PWD=secret", "IS_USER_ADMIN=false", "USER_PATH=/home/John", "USER_NAME=John"]) {
                    echo "Current User Password is : ${env.USER_PWD}"
-                   sh 'echo Current User is Admin? : $env.IS_USER_ADMIN'
+                   sh 'echo Current User is Admin? : $IS_USER_ADMIN'
                    echo "Current User is withENV:  ${env.USER_NAME}"
                }
                
