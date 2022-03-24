@@ -30,7 +30,7 @@ pipeline {
                    env.USERGROUP = 'Users'
                    env.USER_NAME = 'Cena'
                    env.TRIGGER_boolean = true
-                   env.TRIGGER_when = true
+                   env.TRIGGER_when = "true"
                }
                sh 'echo User Group Inside the stage1 : $USERGROUP' 
                
@@ -59,7 +59,7 @@ pipeline {
 
         stage("Stage 3 - Checking TriggerWhen.") {
             when {
-                environment name: "TRIGGER_when", value: true
+                environment name: "TRIGGER_when", value: "true"
             }
 
             steps{
