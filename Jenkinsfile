@@ -29,7 +29,8 @@ pipeline {
                script {
                    env.USERGROUP = 'Users'
                    env.USER_NAME = 'Cena'
-                   env.TRIGGER_NEXT = true
+                   env.TRIGGER_boolean = true
+                   env.TRIGGER_when = true
                }
                sh 'echo User Group Inside the stage1 : $USERGROUP' 
                
@@ -44,19 +45,28 @@ pipeline {
 
             }       
         }
-        stage("Stage 2 - Triggered bassed on Stage 1 Output") {
+        stage("Stage 2 - Checking TriggerBoolean.") {
             when {
                 expression {
-                    env.TRIGGER_NEXT.toBoolean() == true
+                    env.TRIGGER_boolean.toBoolean() == true
                 }
             }
             steps{
-                echo "Stage 2 Executed."
-                echo "Current User is withENV:  ${env.USER_NAME} and USER_ID is: ${env.USER_ID}"
+                echo "Stage 2 Executed. : as TRIGGER_boolean is True."
             }
 
         }
 
+        stage("Stage 3 - Checking TriggerWhen.") {
+            when {
+                environment name: "TRIGGER_when", value: true
+            }
+
+            steps{
+                echo "Stage 3 Executed. : as TRIGGER_when is True."
+            }
+
+        }
 
     }
 }
