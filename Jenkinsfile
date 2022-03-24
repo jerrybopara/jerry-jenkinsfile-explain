@@ -1,4 +1,5 @@
-def myname="Jerry Bopara"
+def myname="Jerry"
+def os="Linux"
 
 pipeline {
     agent any
@@ -27,14 +28,18 @@ pipeline {
                echo "Current User ID is ${env.USER_ID} (type: ${env.USER_ID.class}" 
                echo "Current User Path ${env.USER_PATH}"
                echo "My Name is : ${myname}"
-               
-            //    script {
-                   
-            //    }
 
             }
         }    
 
+        stage("Checking Who is there.") {
+            when {
+                ${myname} == "Jerry"
+            }
+            steps {
+                echo "MyName is Matched: ${myname}"
+            }
+        }
 
 
 
