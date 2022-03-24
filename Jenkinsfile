@@ -24,12 +24,12 @@ pipeline {
                     env.USER_ID = '111'
                 }    
 
-                sh 'echo My UserName is : $USER_NAME and USER_ID is : $USER_ID'
-
                 withEnv(["USER_NAME=Jerry Bopara", "USER_ID=555", "USER_AGE=32"]) {
                          echo "My UserName is : ${env.USER_NAME} and USER_ID is : ${env.USER_ID} and USER_AGE is : $USER_AGE"
                          sh 'echo My UserName is : $USER_NAME and USER_ID is : $USER_ID'
                 }
+
+                sh 'echo My UserName is : $USER_NAME and USER_ID is : $USER_ID'
             }
 
         }
