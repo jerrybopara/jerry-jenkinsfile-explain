@@ -34,7 +34,7 @@ pipeline {
 
         stage("Checking Who is there.") {
             when {
-                expression { MYNAME == 'Jerry' }
+                expression { MYNAME == 'Jerry' } || { OS == 'Linux' }
             }
             steps {
                 echo "MyName is Matched: ${MYNAME}"
