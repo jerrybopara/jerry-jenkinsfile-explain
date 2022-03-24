@@ -41,11 +41,11 @@ pipeline {
                 expression {
                     env.TriggerBool.toBoolean() == true
                 }
-            steps{
+            }
+            steps {
                 echo "Stage2 - TriggerBool is True."
             }    
 
-            }
 
         }
     }
