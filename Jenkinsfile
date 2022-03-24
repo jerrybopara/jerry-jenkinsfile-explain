@@ -29,7 +29,7 @@ pipeline {
                script {
                    env.USERGROUP = 'Users'
                    env.USER_NAME = 'Cena'
-                   env.TRIGGER_boolean = true
+                   env.TRIGGER_boolean = false
                    env.TRIGGER_when = "true"
                }
                sh 'echo User Group Inside the stage1 : $USERGROUP' 
