@@ -31,6 +31,12 @@ pipeline {
                sh 'echo User Group is : $USERGROUP' 
 
             }
+        }
+        stage('testing env defined in stage 1') {
+            steps {
+                sh 'echo User Group is : $USERGROUP' 
+            }
+
         }    
 
 
