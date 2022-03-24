@@ -37,7 +37,7 @@ pipeline {
                 expression { MYNAME == 'Jerry' }
             }
             steps {
-                echo "MyName is Matched: ${myname}"
+                echo "MyName is Matched: ${MYNAME}"
             }
         }
 
