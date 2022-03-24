@@ -29,7 +29,7 @@ pipeline {
                script {
                    env.USERGROUP = 'Users'
                    env.USER_NAME = 'Cena'
-                   env.TRIGGER_NEXT = true
+                   env.TRIGGER_NEXT = "true"
                }
                sh 'echo User Group Inside the stage1 : $USERGROUP' 
                
@@ -47,7 +47,7 @@ pipeline {
         stage("Stage 2 - Triggered bassed on Stage 1 Output") {
             when {
                 expression {
-                    env.TRIGGER_NEXT == true
+                    env.TRIGGER_NEXT.toBoolean() == "true"
                 }
             }
             steps{
