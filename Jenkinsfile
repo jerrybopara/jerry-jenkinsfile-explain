@@ -28,6 +28,7 @@ pipeline {
 
                script {
                    env.USERGROUP = 'Users'
+                   env.USER_NAME = 'Jerry2'
                }
                sh 'echo User Group Inside the stage1 : $USERGROUP' 
 
