@@ -60,8 +60,8 @@ pipeline {
 
         stage("Stage 3 - Checking TriggerWhen.") {
             environment {
-                COUNT_FILES = sh "ls -la /tmp | tail -n +4 | wc -l"
-            }
+                COUNT_FILES = sh(script: "ls -la /tmp | tail -n +4 | wc -l", returnStdout:true) 
+            } 
 
             when {
                 environment name: "TRIGGER_when", value: "true"
