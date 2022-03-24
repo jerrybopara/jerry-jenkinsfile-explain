@@ -69,7 +69,7 @@ pipeline {
 
             steps{
                 echo "Stage 3 Executed. : as TRIGGER_when is True."
-                echo "There are ${env.COUNT_FILES} files in /tmp Folder."
+                echo "There are ${env.COUNT_FILES} files in /tmp Folder." 
             }
 
         }
