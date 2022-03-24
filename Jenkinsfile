@@ -22,6 +22,8 @@ pipeline {
                 script {
                     env.USER_NAME = 'Bopara'
                     env.USER_ID = '111'
+                    env.TriggerBool = true 
+                    env.TriggerWhen = "true" 
                 }    
 
                 withEnv(["USER_NAME=Jerry Bopara", "USER_ID=555", "USER_AGE=32"]) {
@@ -30,6 +32,19 @@ pipeline {
                 }
 
                 sh 'echo My UserName is : $USER_NAME and USER_ID is : $USER_ID'
+            }
+
+        }
+
+        stage("Stage 2: Execute when Bool is ture") {
+            when {
+                expression {
+                    env.TriggerBool.toBoolean() == true
+                }
+            steps{
+                echo "Stage2 - TriggerBool is True."
+            }    
+
             }
 
         }
