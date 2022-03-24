@@ -16,6 +16,7 @@ pipeline {
         stage("Using env Vars") {
             environment {
                 USER_PATH = "/home/jerry"
+                USER_ID = "222"
             }
             steps {
                echo "BUILD_NUMBER = ${env.BUILD_NUMBER}"     
@@ -32,13 +33,7 @@ pipeline {
 
             }
         }
-        stage('testing env defined in stage 1') {
-            steps {
-                sh 'echo User Group OutSide the stage1 : $USERGROUP' 
-                echo "Current User Path: ${env.USER_PATH}"
-            }
 
-        }    
 
 
     }
