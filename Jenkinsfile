@@ -28,13 +28,13 @@ pipeline {
                script {
                    env.USERGROUP = 'Users'
                }
-               sh 'echo User Group is : $USERGROUP' 
+               sh 'echo User Group Inside the stage1 : $USERGROUP' 
 
             }
         }
         stage('testing env defined in stage 1') {
             steps {
-                sh 'echo User Group is : $USERGROUP' 
+                sh 'echo User Group OutSide the stage1 : $USERGROUP' 
             }
 
         }    
