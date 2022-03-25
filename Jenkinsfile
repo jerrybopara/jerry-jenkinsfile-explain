@@ -35,7 +35,7 @@ pipeline {
             }
 
         }
-        stage(Boolean and ENV Var Test.) {
+        stage('Sanity Check') {
             steps {
                 input "Do you want to test Boolean & env as boolean ?"
             }
