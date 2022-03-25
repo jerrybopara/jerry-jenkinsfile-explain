@@ -14,6 +14,7 @@ pipeline {
 
             steps{
                 echo "MyHostName is: ${env.MyHostName}."
+                sh 'docker ps -a'
             }
         }
 
