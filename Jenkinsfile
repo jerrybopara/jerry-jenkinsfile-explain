@@ -1,8 +1,5 @@
 pipeline {
-    agent {
-        label jerryme106
-    }
-
+    agent { label 'jerryme106' }
     environment {
         USER_NAME = "Jerry"
         USER_ID = "333"
