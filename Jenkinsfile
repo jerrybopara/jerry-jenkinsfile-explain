@@ -35,6 +35,11 @@ pipeline {
             }
 
         }
+        stage(Boolean and ENV Var Test.) {
+            steps {
+                input "Do you want to test Boolean & env as boolean ?"
+            }
+        }
 
         stage("Stage 2: Execute when Bool is ture") {
             when {
@@ -45,12 +50,6 @@ pipeline {
             steps {
                 echo "Stage2 - TriggerBool is True."
             }    
-        }
-
-        stage('Sanity check') {
-            steps {
-                input "Does the staging environment look ok?"
-            }
         }
 
         stage("Stage 3: Executes only when TriggerWhen is True.") {
