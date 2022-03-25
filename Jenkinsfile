@@ -47,6 +47,12 @@ pipeline {
             }    
         }
 
+        stage('Sanity check') {
+            steps {
+                input "Does the staging environment look ok?"
+            }
+        }
+
         stage("Stage 3: Executes only when TriggerWhen is True.") {
             when {
                 environment name: "TriggerWhen", value: "true"
@@ -58,11 +64,7 @@ pipeline {
 
         }
 
-        stage('Sanity check') {
-            steps {
-                input "Does the staging environment look ok?"
-            }
-        }
+
 
     }
 
