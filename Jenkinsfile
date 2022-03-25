@@ -1,11 +1,16 @@
 pipeline {
     agent { label 'jerryme106' }
+
     environment {
         USER_NAME = "Jerry"
         USER_ID = "333"
     }
 
     stages{
+        stage('Check Hostname') {
+            sh(script: "hostname", returnStdout:true)
+        }
+
         stage("Print Global ENV's") {
             environment {
                 USER_AGE = "31"
