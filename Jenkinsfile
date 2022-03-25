@@ -10,11 +10,12 @@ pipeline {
         stage('Check Hostname') {
             environment {
                 MyHostName = sh(script: "hostname", returnStdout:true)
+                ContainerID = sh(script: "docker ps -aqf "name=nodejs-docker-auto")
             }    
 
             steps{
                 echo "MyHostName is: ${env.MyHostName}."
-                sh 'docker ps -a'
+                echo "My Container ID is : ${env.ContainerID}"
             }
         }
 
