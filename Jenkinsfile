@@ -9,7 +9,7 @@ pipeline {
     stages{
         stage('Check Hostname') {
             steps {
-                sh(script: "hostname", returnStdout:true)
+                sh(script: 'hostname', returnStdout:true)
             }    
         }
 
