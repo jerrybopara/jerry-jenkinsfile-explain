@@ -8,10 +8,13 @@ pipeline {
 
     stages{
         stage('Check Hostname') {
-            steps {
+            environment {
                 MyHostName = sh(script: "hostname", returnStdout:true)
-                echo "MyHostName is: ${env.MyHostName}."
             }    
+
+            steps{
+                echo "MyHostName is: ${env.MyHostName}."
+            }
         }
 
         stage("Print Global ENV's") {
