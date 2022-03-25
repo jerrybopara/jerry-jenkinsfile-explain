@@ -8,7 +8,9 @@ pipeline {
 
     stages{
         stage('Check Hostname') {
-            sh(script: "hostname", returnStdout:true)
+            steps {
+                sh(script: "hostname", returnStdout:true)
+            }    
         }
 
         stage("Print Global ENV's") {
