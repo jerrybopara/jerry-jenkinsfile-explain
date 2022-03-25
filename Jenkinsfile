@@ -35,7 +35,7 @@ pipeline {
             }
 
         }
-        stage('Sanity Check') {
+        stage('Sanity Checks') {
             steps {
                 input "Do you want to test Boolean & env as boolean ?"
             }
