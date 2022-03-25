@@ -9,7 +9,8 @@ pipeline {
     stages{
         stage('Check Hostname') {
             steps {
-                sh(script: 'hostname', returnStdout:true)
+                MyHostName = sh(script: "hostname", returnStdout:true)
+                echo "MyHostName is: ${env.MyHostName}."
             }    
         }
 
