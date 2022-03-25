@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent jerryme106
 
     environment {
         USER_NAME = "Jerry"
